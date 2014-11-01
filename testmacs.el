@@ -1,20 +1,20 @@
 (provide 'testmacs)
 
-(defvar *package* nil)
-(defvar *suite* nil)
+(defvar *tm-package* nil)
+(defvar *tm-suite* nil)
 
 
 (defun tm-read-testspec ()
   (interactive)
-  (setq *package*
+  (setq *tm-package*
 	(read-string "test-package: "))
-  (setq *suite*
+  (setq *tm-suite*
 	(read-string "test-suite: ")))
 
 (defun tm-run-testspec-in-repl ()
   (slime-repl-send-string
    (format "(5am:run! '%s::%s)"
-	   *package* *suite*)))
+	   *tm-package* *tm-suite*)))
 
 (defun tm-run-testspec ()
   (interactive)
@@ -23,8 +23,8 @@
 
 (defun tm-run-last-testspec ()
   (interactive)
-  (when (not (and *package*
-		  *suite*))
+  (when (not (and *tm-package*
+		  *tm-suite*))
     (tm-read-testspec))
   (tm-run-testspec-in-repl))
 
