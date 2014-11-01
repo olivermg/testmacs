@@ -8,4 +8,5 @@ Insert into your ~/.emacs file something like:
 (require 'testmacs)
 
 (global-set-key (kbd "C-c C-\\") 'tm-run-last-testspec)
-(global-set-key (kbd "C-c C-'") 'tm-run-testspec)```
+(global-set-key (kbd "C-c C-'") 'tm-run-testspec)
+```
